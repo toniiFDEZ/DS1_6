@@ -1,0 +1,27 @@
+<%= form_with(model: inicio_sesion) do |form| %>
+  <% if inicio_sesion.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(inicio_sesion.errors.count, "error") %> prohibited this inicio_sesion from being saved:</h2>
+
+      <ul>
+        <% inicio_sesion.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :usuario, style: "display: block" %>
+    <%= form.text_field :usuario %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

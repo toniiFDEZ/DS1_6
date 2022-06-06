@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DS16</title>
+    <title>P4</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,8 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= link_to "Projects", root_path %>
-    <%= link_to "Developers", :developers %>
+  <div class="Cabecera">
+    <div class="Logo">
+      <img src="/images/logo.jpeg" width="100%" height="100%"/>
+    </div>
+
+    <div class="Menu">
+      <h1> SuitOwl </h1>
+    </div>
+  </div>
+  <%= yield %>
   </body>
 </html>
