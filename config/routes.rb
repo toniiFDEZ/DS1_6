@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   get "users/new", to: "users#new"
   resources :usuarios
   post "users", to: "users#create"
+  namespace :api, defaults: { format: 'json' }  do
+  	namespace :v1 do
+  		resources :usuarios
+  	end
+  end
   # Defines the root path route ("/")
   # root "articles#index"
 end
