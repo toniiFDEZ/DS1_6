@@ -5,12 +5,32 @@
     <% @productos_usuario.each do |producto| %>
     <div class="Separar">
       <%= render producto %>
+        
+        <% if producto.images.attached? %>
+          <% for image in producto.images.where(:fpic => 1) do %>
+            <%= image_tag(image, class: "feats") %>
+          <% end %>
+          <% for image in producto.images.where(:fpic => 0) do %>
+            <%= image_tag(image, class: "productoshow") %>
+          <% end %>
+        <% end %>
+
         <p>
           <%= link_to "Mostrar producto", producto %>
         </p>
+
+        <p>
+          <%= link_to 'Edit', edit_producto_path(producto) %>
+        </p>
+
+        <p>
+          <%= button_to 'Destroy this producto', producto, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+
     </div>
     <% end %>
   </div>
+
 
   <div class="Separar"><%= link_to "Subir para vender", new_producto_path %></div>
 </div>

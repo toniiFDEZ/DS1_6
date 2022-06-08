@@ -65,6 +65,21 @@ class ProductosController < ApplicationController
     end
   end
 
+  def make_image_featured
+    imgs = ActiveStorage::Attachment.where(:record_id => params[:id])
+    imgs.update_all(:fpic => 0)
+    @images = ActiveStorage::Attachment.find(params[:img_id])
+    @images.update_attributes(:fpic => true)
+    redirect_back(fallback_location: posts_path) 
+  end
+    
+  def reset_featured
+    #@images = ActiveStorage::Attachment.all
+    @images = ActiveStorage::Attachment.where(:record_id => params[:id])
+    @images.update_all(:fpic => false)
+    redirect_back(fallback_location: posts_path)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_producto
@@ -73,6 +88,6 @@ class ProductosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def producto_params
-      params.require(:producto).permit(:nombre,:precio, :cantidad)
+      params.require(:producto).permit(:nombre,:precio, :cantidad, images: [])
     end
 end
