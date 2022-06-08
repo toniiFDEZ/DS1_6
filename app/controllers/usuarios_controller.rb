@@ -14,6 +14,7 @@ class UsuariosController < ApplicationController
   def new
     @usuario = Usuario.new
   end
+
   # GET /usuarios/1/edit
   def edit
   end
@@ -24,7 +25,8 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to usuario_url(@usuario), notice: "Usuario was successfully created." }
+        session[:id] = @usuario.id
+        format.html { redirect_to productos_url(@usuario)}
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +66,6 @@ class UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.require(:usuario).permit(:name, :password, :email, :direccion)
+      params.require(:usuario).permit(:name, :nick,:password, :email, :direccion)
     end
 end

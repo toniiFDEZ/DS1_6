@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <div class="Fondo">
   <h1>Productos</h1>
 
   <div id="productos">
-    <% @productos.each do |producto|  %>
+    <% @productos_usuario.each do |producto| %>
     <div class="Separar">
       <%= render producto %>
         <p>

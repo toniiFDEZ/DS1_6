@@ -4,6 +4,10 @@ class ProductosController < ApplicationController
   # GET /productos or /productos.json
   def index
     @productos = Producto.all
+    if session[:id]
+      @usuario = Usuario.find_by(id: session[:id])
+    end
+    @productos_usuario = Producto.where(IDusuario: @usuario.id)
   end
 
   # GET /productos/1 or /productos/1.json
@@ -22,11 +26,16 @@ class ProductosController < ApplicationController
   # POST /productos or /productos.json
   def create
     @producto = Producto.new(producto_params)
+    if session[:id]
+      @usuario = Usuario.find_by(id: session[:id])
+    end
+    @producto.IDusuario = @usuario.id
 
     respond_to do |format|
       if @producto.save
         format.html { redirect_to producto_url(@producto), notice: "Producto was successfully created." }
         format.json { render :show, status: :created, location: @producto }
+        #@producto.IDusuario = session[:current_user_id] = user.id
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @producto.errors, status: :unprocessable_entity }
@@ -46,7 +55,6 @@ class ProductosController < ApplicationController
       end
     end
   end
-
   # DELETE /productos/1 or /productos/1.json
   def destroy
     @producto.destroy
@@ -65,6 +73,6 @@ class ProductosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def producto_params
-      params.require(:producto).permit(:nombre, :precio, :cantidad, :color, :tipo)
+      params.require(:producto).permit(:nombre,:precio, :cantidad)
     end
 end

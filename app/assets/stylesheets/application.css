@@ -39,12 +39,16 @@
     font-size: 2cm;
     text-align: center;
 }
-.inicioSesion{
+.iniciosesion{
     background-color: gold;
     font-size: 2cm;
     text-align: center;
 }
-
+.user_header{
+    background-color: gold;
+    font-size: 2cm;
+    text-align: center;
+}
 .footer{
     background-color: rgb(198, 155, 124);
     display: flex;

@@ -5,8 +5,13 @@ class UsersController < ApplicationController
    end
 
    def create
-      @user =User.create(name: params[:user][:name])
-      render json: @user
+      @user = User.new(user_params)
+      if @user.save
+         session[:user_id] = @user.id
+         redirect_to root_url, notice: 'User successfully created.'
+      else
+         render :new
+      end
    end
 
 end
