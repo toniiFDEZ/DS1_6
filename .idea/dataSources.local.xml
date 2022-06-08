@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="RM-221.5591.54">
+    <data-source name="Rails DS1_6: development" uuid="c4d169ce-34ec-4940-aeb6-4e3429cf710c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>DS1_6</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails DS1_6: production" uuid="69eaf457-76d0-46a2-a91d-9ceab6aef39a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>DS1_6</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails DS1_6: test" uuid="3204171a-0551-433f-b9ce-0e59ea76723d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>DS1_6</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
